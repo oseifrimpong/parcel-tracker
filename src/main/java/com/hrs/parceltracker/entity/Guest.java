@@ -17,6 +17,7 @@ import java.time.LocalDate;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Guest extends BaseEntity {
 
+    @Column(name = "name")
     private String name;
 
     @Column(name = "check_in_date")

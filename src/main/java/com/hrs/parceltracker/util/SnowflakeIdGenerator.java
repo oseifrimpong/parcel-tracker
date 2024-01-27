@@ -9,7 +9,6 @@ import java.io.Serializable;
 
 public class SnowflakeIdGenerator implements IdentifierGenerator {
 
-
     @Override
     public Serializable generate(SharedSessionContractImplementor session, Object object) throws HibernateException {
         SnowflakeIdWorker snowflakeIdWorker = SpringUtil.getBean(SnowflakeIdWorker.class);

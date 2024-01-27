@@ -1,8 +1,17 @@
 package com.hrs.parceltracker.util;
 
 import com.hrs.parceltracker.common.exception.ApplicationException;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+
+import java.math.BigDecimal;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 
 public class SnowflakeIdWorker {
+
+    @Value("${application.snowflake.data-center}")
+    private Long dataCenterId;
 
     // ==============================Fields===========================================
     /**

@@ -18,7 +18,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @Modify:
  **/
 @Configuration
-@EnableSwagger2
 public class SwaggerConfig{
 
     @Bean
@@ -32,7 +31,7 @@ public class SwaggerConfig{
     }
 
     private ApiInfo apiInfo() {
-        return new ApiInfoBuilder().title("parcel tracker service ")
+        return new ApiInfoBuilder().title("Parcel tracker service ")
                 .description("Parcel Tracker service")
                 .contact(new Contact("Obed","","obedosei@gmail.com"))
                 .version("0.0.1")

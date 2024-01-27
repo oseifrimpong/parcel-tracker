@@ -1,11 +1,20 @@
 server:
   port: 3000
+  servlet:
+    context-path: ${CONTEXT_PATH:/api}
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  tomcat:
+    uri-encoding: UTF-8
+
 spring:
   datasource:
-    url: jdbc:postgresql://${HOST:localhost}:${PORT:5400}/${DATABASE_NAME:nps_db}
+    url: jdbc:postgresql://${HOST:localhost}:${PORT:5400}/${DATABASE_NAME:parcel_tracker_db}
     database-platform: org.postgresql.Driver
-    username: ${DB_USERNAME:npsAdmin}
-    password: ${PASSWORD:123456}
+    username: ${DB_USERNAME:admin}
+    password: ${PASSWORD:teasAdmin}
     type: com.zaxxer.hikari.HikariDataSource
     pool-name: nps_HikariCP
     initial-size: ${POSTGRES_INIT_SIZE:1}
@@ -17,9 +26,7 @@ spring:
     max-lifetime: ${POSTGRES_MAX_LIFE_TIME:180000}
     connection-timeout: ${POSTGRES_CONN_TIMIEOUT:30000}
   application:
-    name: nps
-  flyway:
-    enabled: false
+    name: parcel-tracker
   main:
     allow-bean-definition-overriding: true
   jpa:
@@ -27,4 +34,10 @@ spring:
     generate-ddl: false
     hibernate:
       ddl-auto: update
-      show-sql: true
+    show-sql: false
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+application:
+  snowflake:
+    data-center: 1
