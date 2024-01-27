@@ -1,6 +1,8 @@
 package com.hrs.parceltracker.entity;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -14,15 +16,19 @@ import java.time.LocalDate;
 @Setter
 @RequiredArgsConstructor
 @Accessors(chain = true)
+@ApiModel(value = "guest")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Guest extends BaseEntity {
 
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
+    @ApiModelProperty(value = "name")
     private String name;
 
-    @Column(name = "check_in_date")
-    private LocalDate checkInDate;
+    @Column(name = "phone")
+    @ApiModelProperty(value = "phone")
+    private String Phone;
 
-    @Column(name = "check_out_date")
-    private LocalDate checkOutDate;
+    @Column(name = "address")
+    @ApiModelProperty(value = "address")
+    private String Address;
 }

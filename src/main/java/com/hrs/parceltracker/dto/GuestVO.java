@@ -7,7 +7,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
-import java.time.LocalDate;
+import javax.persistence.Column;
 
 @Getter
 @Setter
@@ -19,9 +19,11 @@ public class GuestVO {
     @ApiModelProperty(value="Name of the guest", name="name", required = true)
     private String name;
 
-    @ApiModelProperty(value="guest checkin date", name="checkInDate", required = true)
-    private LocalDate checkInDate;
+    @Column(name = "phone")
+    @ApiModelProperty(value = "guest phone number", required = true)
+    private String Phone;
 
-    @ApiModelProperty(value="guest checkout date", name="checkOutDate")
-    private LocalDate checkOutDate;
+    @Column(name = "address")
+    @ApiModelProperty(value = "guest address", name = "address", required = true)
+    private String Address;
 }
